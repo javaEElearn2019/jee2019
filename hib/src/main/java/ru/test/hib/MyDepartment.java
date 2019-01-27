@@ -10,6 +10,10 @@ import javax.persistence.Table;
 @Table(name = "DEPARTMENT")
 public class MyDepartment {
 
+    @Override
+    public String toString() {
+        return "{{ID = "+ identifier + ", NAME = " + name + ", adr = " + fullAddress + "}}";
+    }
 
     @Id
     @Column(name = "ID")

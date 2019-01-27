@@ -29,6 +29,7 @@ public class BasketSrv extends HttpServlet {
         //set new TTL
         sess.setMaxInactiveInterval(60);
 
+
         if(sess.getAttribute("Basket")==null){
             sess.setAttribute("Basket", new ArrayList<String>());
         }
