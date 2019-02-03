@@ -11,6 +11,13 @@ public class ListBean {
     private List<Position> posList = Store.getInstance().getData();
 
     public List<Position> getPosList() {
-        return posList;
+
+        List<Position> hh = posList;
+
+        return hh;
+    }
+
+    public void setPosList(List<Position> posList) {
+        this.posList = posList;
     }
 }
