@@ -1,31 +1,17 @@
 package re.test.jsfdemo;
 
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-
-@ManagedBean(name = "mybean")
-@RequestScoped
 public class Position {
 
-
-    public String doAdd(){
-
-        System.out.println("in do add with " + this.serialNo + ",  " + this.name + ", " + this.quantity);
-
-        return "main";
-    }
-
-    private String serialNo;
+    private String articul;
     private String name;
-    private Double quantity;
+    private Double qnty;
 
-    public String getSerialNo() {
-        return serialNo;
+    public String getArticul() {
+        return articul;
     }
 
-    public void setSerialNo(String serialNo) {
-        this.serialNo = serialNo;
+    public void setArticul(String articul) {
+        this.articul = articul;
     }
 
     public String getName() {
@@ -36,11 +22,11 @@ public class Position {
         this.name = name;
     }
 
-    public Double getQuantity() {
-        return quantity;
+    public Double getQnty() {
+        return qnty;
     }
 
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
+    public void setQnty(Double qnty) {
+        this.qnty = qnty;
     }
 }
