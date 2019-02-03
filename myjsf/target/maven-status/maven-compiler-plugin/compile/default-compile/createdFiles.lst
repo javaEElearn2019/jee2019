@@ -1,4 +1,4 @@
-re\test\jsfdemo\ListBean.class
-re\test\jsfdemo\Store.class
-re\test\jsfdemo\AddBean.class
-re\test\jsfdemo\Position.class
+re\test\jsfdemo\DataBase.class
+re\test\jsfdemo\entity\Position.class
+re\test\jsfdemo\beans\AddBean.class
+re\test\jsfdemo\beans\ListBean.class

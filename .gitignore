@@ -58,3 +58,6 @@
 /hib/target/classes/ru/test/hib/App.class
 /hib/target/classes/ru/test/hib/MyDepartment.class
 /hib/target/classes/ru/test/hib/SF.class
+/myjsf/target
+*.iml
+/myjsf/*.idea
