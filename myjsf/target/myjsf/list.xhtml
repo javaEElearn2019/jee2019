@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsf/core">
+
+<h:dataTable value="listbean.posList" var="t">
+    <h:column>
+        <c:facet name="header">
+            <h:outputText value="Arcticul No" />
+        </c:facet>
+        #{t.articul}
+    </h:column>
+    <h:column>
+        <c:facet name="header">
+            <h:outputText value="Name" />
+        </c:facet>
+        #{t.name}
+    </h:column>
+    <h:column>
+        <c:facet name="header">
+            <h:outputText value="Quantity" />
+        </c:facet>
+        #{t.qnty}
+    </h:column>
+</h:dataTable>
+<h:commandLink action="main" value="Back"/>
+</html>
