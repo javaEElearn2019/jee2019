@@ -18,7 +18,7 @@ public class AddBean {
         pos.setName(name);
         pos.setQnty(quantity);
 
-        Store.getInstance().getData().add(pos);
+        ListBean.addPos(pos);
 
         return "list";
     }

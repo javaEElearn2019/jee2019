@@ -1,11 +1,24 @@
 package re.test.jsfdemo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PositionsItems")
 public class Position {
-
+	@Id
+	@Column(name="ID")
     private String articul;
+	@Column(name="NAME")
     private String name;
+	@Column(name="qnty")
     private Double qnty;
-
+    
+	public Position() {
+		// TODO Auto-generated constructor stub
+	}
     public String getArticul() {
         return articul;
     }
