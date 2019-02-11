@@ -58,3 +58,10 @@
 /hib/target/classes/ru/test/hib/App.class
 /hib/target/classes/ru/test/hib/MyDepartment.class
 /hib/target/classes/ru/test/hib/SF.class
+phonebook_exam/.idea/
+phonebook_exam/pbws/target/
+phonebook_exam/jsfclient/target/
+phonebook_exam/pbws/pbws.iml
+phonebook_exam/jsfclient/jsfclient.iml
+phonebook_exam/commons/target/
+phonebook_exam/commons/commons.iml

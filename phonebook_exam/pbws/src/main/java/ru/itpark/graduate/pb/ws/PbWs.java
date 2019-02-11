@@ -2,10 +2,7 @@ package ru.itpark.graduate.pb.ws;
 
 import ru.itpark.graduate.pb.ws.api.*;
 import ru.itpark.graduate.pb.ws.db.JpaSessionFactory;
-import ru.itpark.graduate.pb.ws.impl.PhoneBookExecuteCheckAuthPairImpl;
-import ru.itpark.graduate.pb.ws.impl.PhoneBookRecordCreateImpl;
-import ru.itpark.graduate.pb.ws.impl.PhoneBookRecordGetListImpl;
-import ru.itpark.graduate.pb.ws.impl.PhoneBookRecordUpdateImpl;
+import ru.itpark.graduate.pb.ws.impl.*;
 
 import javax.annotation.PreDestroy;
 import javax.jws.WebMethod;
@@ -28,7 +25,7 @@ public class PbWs {
     }
 
     @WebMethod
-    @WebResult(name = "PhoneBookExecuteChechAuthPairResponse")
+    @WebResult(name = "PhoneBookExecuteCheckAuthPairResponse")
     public Boolean phoneBookExecuteCheckAuthPair(
             @WebParam(name = "Login") String login,
             @WebParam(name = "Password") String password){
@@ -45,16 +42,21 @@ public class PbWs {
     @WebMethod
     @WebResult(name = "PhoneBookRecordUpdateResponse")
     public TPhoneBookRecordUpdateRes phoneBookRecordUpdate(
-            @WebParam(name = "PhoneBookRecordUpdateRequest")TPhoneBookRecordUpdateReq req){
+            @WebParam(name = "PhoneBookRecordUpdateRequest") TPhoneBookRecordUpdateReq req){
         return new PhoneBookRecordUpdateImpl().phoneBookRecordUpdate(req);
     }
 
     @WebMethod
     @WebResult(name = "PhoneBookRecordGetListResponse")
     public TPhoneBookRecordGetListRes phoneBookRecordGetList(
-            @WebParam(name = "PhoneBookRecordGetListRequest")TPhoneBookRecordGetListReq req){
+            @WebParam(name = "PhoneBookRecordGetListRequest") TPhoneBookRecordGetListReq req){
         return new PhoneBookRecordGetListImpl().phoneBookRecordGetList(req);
     }
 
-    //TODO delete
+    @WebMethod
+    @WebResult(name = "PhoneBookRecordDeleteResponse")
+    public TPhoneBookRecordDeleteRes phoneBookRecordDelete(
+            @WebParam(name = "PhoneBookRecordDeleteRequest") TPhoneBookRecordDeleteReq req){
+        return new PhoneBookRecordDeleteImpl().phoneBookRecordDelete(req);
+    }
 }

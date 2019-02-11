@@ -27,6 +27,7 @@ public class PhoneBookExecuteCheckAuthPairImpl {
                     result = true;
                 }
             }
+            session.close();
         }
         return result;
     }
