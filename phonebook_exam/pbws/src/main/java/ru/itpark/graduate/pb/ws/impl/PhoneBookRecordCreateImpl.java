@@ -55,10 +55,11 @@ public class PhoneBookRecordCreateImpl {
         Query query = session.createQuery("FROM PhoneBookRecordEntity WHERE login = :id");
         query.setParameter("id", req.getLogin());
         List<PhoneBookRecordEntity> found = (List<PhoneBookRecordEntity>)query.list();
+        ErrorCodes ec = ErrorCodes.OK;
         if(!found.isEmpty()){
-            return ErrorCodes.BUS_LOGIN_ALREADY_USING;
+            ec = ErrorCodes.BUS_LOGIN_ALREADY_USING;
         }
         session.close();
-        return ErrorCodes.OK;
+        return ec;
     }
 }
