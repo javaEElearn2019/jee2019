@@ -28,4 +28,13 @@ public enum ErrorCodes {
     public String getMsg() {
         return msg;
     }
+
+    public String lookupMessageByIg(Long id){
+        for(ErrorCodes ec : values()){
+            if(ec.getId()!=null && ec.getId().equals(id)){
+                return ec.getMsg();
+            }
+        }
+        return null;
+    }
 }
