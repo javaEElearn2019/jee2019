@@ -29,7 +29,7 @@ public enum ErrorCodes {
         return msg;
     }
 
-    public String lookupMessageByIg(Long id){
+    public static String lookupMessageByIg(Long id){
         for(ErrorCodes ec : values()){
             if(ec.getId()!=null && ec.getId().equals(id)){
                 return ec.getMsg();
