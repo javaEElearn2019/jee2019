@@ -2,6 +2,7 @@ package ru.itpark.graduate.pb.ws.impl;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import ru.itpark.graduate.pb.commons.Crypto;
 import ru.itpark.graduate.pb.commons.ErrorCodes;
 import ru.itpark.graduate.pb.commons.ParamUtils;
@@ -11,6 +12,7 @@ import ru.itpark.graduate.pb.ws.api.TPhoneBookRecordCreateRes;
 import ru.itpark.graduate.pb.ws.db.JpaSessionFactory;
 import ru.itpark.graduate.pb.ws.db.entity.PhoneBookRecordEntity;
 
+import java.util.List;
 import java.util.UUID;
 
 public class PhoneBookRecordCreateImpl {
@@ -48,7 +50,15 @@ public class PhoneBookRecordCreateImpl {
         if(ParamUtils.isEmpty(req.getPassword())){
             return ErrorCodes.BUS_PASSWORD_NOSET;
         }
-        //TODO login already using
+
+        Session session = JpaSessionFactory.getInstance().openSession();
+        Query query = session.createQuery("FROM PhoneBookRecordEntity WHERE login = :id");
+        query.setParameter("id", req.getLogin());
+        List<PhoneBookRecordEntity> found = (List<PhoneBookRecordEntity>)query.list();
+        if(!found.isEmpty()){
+            return ErrorCodes.BUS_LOGIN_ALREADY_USING;
+        }
+        session.close();
         return ErrorCodes.OK;
     }
 }

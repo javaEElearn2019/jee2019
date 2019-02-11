@@ -5,7 +5,7 @@ public enum ErrorCodes {
 
     BUS_LOGIN_NOSET(1L, "Login is not set"),
     BUS_PASSWORD_NOSET(2L, "Password is not set"),
-    BUS_LOGIN_ALREADY_USEING(3L, "Login already using"),
+    BUS_LOGIN_ALREADY_USING(3L, "Login already using"),
     BUS_RECORD_NOT_FOUND(4L, "Record not found"),
     BUS_RECORD_GUID_NOSET(5L, "Record id is not set"),
 
