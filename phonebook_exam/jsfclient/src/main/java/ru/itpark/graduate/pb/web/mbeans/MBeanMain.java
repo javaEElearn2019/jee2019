@@ -8,18 +8,45 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name = "mainBean")
 @SessionScoped
 public class MBeanMain {
-    static{
+    /*static{
         //stub -- see what load from config
         PbWsService s = new PbWsService();
-    }
+    }*/
 
-    private String stub = "boo";
+    //private String stub = "boo";
 
-    public String getStub() {
+    /*public String getStub() {
         return stub;
     }
 
     public void setStub(String stub) {
         this.stub = stub;
+    }*/
+
+
+
+
+
+    private String login;
+    private String password;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String doAction(){
+        return "main";
     }
 }
