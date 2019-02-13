@@ -6,8 +6,11 @@ import ru.itpark.graduate.pb.web.facade.PhoneBookFacade;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 @ManagedBean(name = "listBean")
 @SessionScoped
@@ -94,6 +97,15 @@ public class MBeanList {
     public String doBackFromEditInput(){
         search();
         return "list";
+    }
+
+
+    public String formatDate(XMLGregorianCalendar date){
+        if(date == null){
+            return "";
+        } else {
+            return new SimpleDateFormat("dd.MM.yyyy").format(date.toGregorianCalendar().getTime());
+        }
     }
 
 }

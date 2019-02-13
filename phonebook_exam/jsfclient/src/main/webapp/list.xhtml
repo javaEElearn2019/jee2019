@@ -75,7 +75,7 @@
             <c:facet name="header">
                 <h:outputText value="Birthday" />
             </c:facet>
-            <h:outputText value="#{item.birthDate}"/>
+            <h:outputText value="#{listBean.formatDate(item.birthDate)}"/>
         </h:column>
         <h:column>
             <c:facet name="header">
