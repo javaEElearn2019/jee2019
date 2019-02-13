@@ -1,0 +1,105 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsf/core">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    </link>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+<h:panelGroup rendered="#{mainBean.auth}">
+<div style="padding:40px; top:40px; width:80%; margin:10px auto 5px;">
+    <h:form>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <h:commandButton action="#{mainBean.logOut()}" value="LogOut" class="btn btn-outline-dark mb-2"/>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col">
+                <label class="sr-only" for="inlineFormInput">Search text</label>
+                <h:inputText id="inlineFormInput" value="#{listBean.searchText}" class="form-control mb-2" placeholder="Input search text"/>
+            </div>
+            <div class="col-auto">
+                <h:commandButton action="#{listBean.search()}" value="Search" class="btn btn-primary mb-2"/>
+            </div>
+            <div class="col-auto">
+                <h:commandButton action="#{listBean.clear()}" value="Clear" class="btn btn-danger mb-2"/>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <!-- nothing do now...   TODO -->
+                <button type="submit" class="btn btn-success mb-2">Add...</button>
+            </div>
+        </div>
+    </h:form>
+
+    <h:dataTable class="table table-striped table-sm" value="#{listBean.rows}" var="item">
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Login" />
+            </c:facet>
+            <h:outputText value="#{item.login}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Firstname" />
+            </c:facet>
+            <h:outputText value="#{item.firstName}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Middlename" />
+            </c:facet>
+            <h:outputText value="#{item.middleName}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Lastname" />
+            </c:facet>
+            <h:outputText value="#{item.lastName}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Birthday" />
+            </c:facet>
+            <h:outputText value="#{item.birthDate}"/>
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Email" />
+            </c:facet>
+            <h:outputText value="#{item.email}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="Phone" />
+            </c:facet>
+            <h:outputText value="#{item.phone}" />
+        </h:column>
+        <h:column>
+            <c:facet name="header">
+                <h:outputText value="" />
+            </c:facet>
+            <h:form>
+                <h:commandButton action="#{listBean.edit(item.recordGUID)}" value="..." class="btn btn-outline-secondary"/>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+</div>
+</h:panelGroup>
+</body>
+
+</html>

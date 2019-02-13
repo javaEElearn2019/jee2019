@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsf/core">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    </link>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+<h:panelGroup rendered="#{mainBean.auth}">
+    <div style="padding:40px; top:40%; width:564px; margin:10px auto 5px;">
+        <h:form>
+            <div class="form-group">
+                <label for="inpLogin">Login</label>
+                <h:inputText readonly="true" id="inpLogin" value="#{listBean.currentEdit.login}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="inpFirstName">First name</label>
+                <h:inputText id="inpFirstName" value="#{listBean.currentEdit.firstName}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="inpMiddleName">Middle name</label>
+                <h:inputText id="inpMiddleName" value="#{listBean.currentEdit.middleName}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="inpLastName">Last name</label>
+                <h:inputText id="inpLastName" value="#{listBean.currentEdit.lastName}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="inpEmail">Email</label>
+                <h:inputText id="inpEmail" value="#{listBean.currentEdit.email}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="inpPhone">Phone</label>
+                <h:inputText id="inpPhone" value="#{listBean.currentEdit.phone}" class="form-control"/>
+            </div>
+            <h:panelGroup rendered="#{false}">
+                <h:inputText id="inpGUID" value="#{listBean.currentEdit.recordGUID}" type="hidden"/>
+            </h:panelGroup>
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <h:commandButton action="#{listBean.doUpdate()}" value="Update" class="btn btn-success mb-2"/>
+                </div>
+                <div class="col-auto">
+                    <h:commandButton action="#{listBean.doDelete()}" value="Delete" class="btn btn-danger mb-2"/>
+                </div>
+                <div class="col-auto">
+                    <h:commandButton action="#{listBean.doBackFromEditInput()}" value="Back" class="btn btn-secondary mb-2"/>
+                </div>
+            </div>
+        </h:form>
+    </div>
+</h:panelGroup>
+</body>
+
+</html>

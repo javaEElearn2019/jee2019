@@ -21,7 +21,7 @@ public class PhoneBookRecordGetListImpl {
         TPhoneBookRecordGetListRes result = new TPhoneBookRecordGetListRes();
         if(!ParamUtils.isEmpty(req.getRecordGUID())){
             Session session = JpaSessionFactory.getInstance().openSession();
-            Query query = session.createQuery("FROM PhoneBookRecordEntity WHERE recGUID = :id");
+            Query query = session.createQuery("FROM PhoneBookRecordEntity WHERE recGUID = :id ");
             query.setParameter("id", req.getRecordGUID());
             List<PhoneBookRecordEntity> found = (List<PhoneBookRecordEntity>)query.list();
             mapToList(found, result.getList());
@@ -54,9 +54,9 @@ public class PhoneBookRecordGetListImpl {
                 predicatesArray[3] = builder.like(builder.upper(email), "%" + req.getSearchText().toUpperCase() + "%");
 
                 criteriaQuery.where( // where
-                        builder.or(  // firstname like  .... OR lastname like ... OR
-                                predicatesArray
-                        )
+                            builder.or(  // firstname like  .... OR lastname like ... OR
+                                    predicatesArray
+                            )
                 );
             }
             List<PhoneBookRecordEntity> found = (List<PhoneBookRecordEntity>)session.createQuery(criteriaQuery).list();
@@ -68,18 +68,22 @@ public class PhoneBookRecordGetListImpl {
         return result;
     }
 
+    private final static String ADM_LOGIN = "admin";
+
     private void mapToList(Collection<PhoneBookRecordEntity> from, Collection<TRecordListElement4TPhoneBookRecordGetListRes> to){
         for(PhoneBookRecordEntity item : from){
-            TRecordListElement4TPhoneBookRecordGetListRes row = new TRecordListElement4TPhoneBookRecordGetListRes();
-            row.setBirthDate(item.getBirthDate());
-            row.setEmail(item.getEmail());
-            row.setFirstName(item.getFirstname());
-            row.setLogin(item.getLogin());
-            row.setLastName(item.getLastname());
-            row.setMiddleName(item.getMiddlename());
-            row.setPhone(item.getPhone());
-            row.setRecordGUID(item.getRecGUID());
-            to.add(row);
+            if(!ADM_LOGIN.equals(item.getLogin())) {
+                TRecordListElement4TPhoneBookRecordGetListRes row = new TRecordListElement4TPhoneBookRecordGetListRes();
+                row.setBirthDate(item.getBirthDate());
+                row.setEmail(item.getEmail());
+                row.setFirstName(item.getFirstname());
+                row.setLogin(item.getLogin());
+                row.setLastName(item.getLastname());
+                row.setMiddleName(item.getMiddlename());
+                row.setPhone(item.getPhone());
+                row.setRecordGUID(item.getRecGUID());
+                to.add(row);
+            }
         }
     }
 }

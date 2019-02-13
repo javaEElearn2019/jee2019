@@ -22,7 +22,13 @@
                 <label for="inpPassword">Password</label>
                 <h:inputSecret value="#{mainBean.password}" id="inpPassword" placeholder="Password" class="form-control"/>
             </div>
-            <h:commandButton action="#{mainBean.doAction()}" value="LogIn" class="btn btn-primary"/>
+            <h:commandButton action="#{mainBean.doCheck()}" value="LogIn" class="btn btn-primary"/>
+            <h:panelGroup rendered="#{!mainBean.auth and mainBean.login != '' and mainBean.login != null}">
+                <div class="form-group"></div>
+                <div class="alert alert-danger" role="alert">
+                #{mainBean.errorText}
+                </div>
+            </h:panelGroup>
         </h:form>
     </div>
 </body>
