@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Book {
 
-    private String tilte;
+    private String title;
     private List<String> authors = new ArrayList<String>();
     private String isbn;
 
-    public String getTilte() {
-        return tilte;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTilte(String tilte) {
-        this.tilte = tilte;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public List<String> getAuthors() {
