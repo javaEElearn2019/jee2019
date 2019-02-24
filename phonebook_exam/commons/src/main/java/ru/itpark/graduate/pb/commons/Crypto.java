@@ -18,6 +18,7 @@ public class Crypto {
             md.update(pass.getBytes("UTF-8"));
             byte[] digest = md.digest();
             result = String.format("%064x", new BigInteger(1, digest)).toUpperCase();
+            //result += "@";
         } catch (Exception x){}
         return result;
     }
